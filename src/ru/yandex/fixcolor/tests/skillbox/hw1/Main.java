@@ -35,11 +35,14 @@ public class Main
         //TODO: реализовать оповещение в случае, если недостаточно средств
         boolean canBuyAnything = false;
 
-        for(int i = 0; i < drinkNames.length; i++)
-        {
-            if(moneyAmount >= drinkPrices[i]) {
-                System.out.println("Вы можете купить " + drinkNames[i]);
+        for (DrinkList drink : drinks) {
+            if (moneyAmount >= drink.price) {
+                System.out.println("Вы можите купить " + drink.name);
+                canBuyAnything = true;
             }
+        }
+        if (!canBuyAnything) {
+            System.out.println("У вас недостаточно средств");
         }
 
         //TODO: 20200810_204507
