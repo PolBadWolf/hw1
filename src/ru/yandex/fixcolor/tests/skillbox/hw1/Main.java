@@ -33,15 +33,18 @@ public class Main
         };
 
         //TODO: реализовать оповещение в случае, если недостаточно средств
-        boolean canBuyAnything = false;
+        int countBuy = 0;
 
         for (DrinkList drink : drinks) {
             if (moneyAmount >= drink.price) {
-                System.out.println("Вы можите купить " + drink.name);
-                canBuyAnything = true;
+                countBuy++;
+                if (countBuy == 1) {
+                    System.out.println("Вы можите купить:");
+                }
+                System.out.println(countBuy + ") " + drink.name);
             }
         }
-        if (!canBuyAnything) {
+        if (countBuy == 0) {
             System.out.println("У вас недостаточно средств");
         }
 
