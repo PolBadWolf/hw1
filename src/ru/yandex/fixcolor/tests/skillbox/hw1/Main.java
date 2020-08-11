@@ -46,7 +46,7 @@ public class Main
         }
 
         //TODO: 20200810_204507
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
         Date now = new Date();
         System.out.println(dateFormat.format(now));
 
