@@ -15,6 +15,7 @@ public class Main
         System.out.println("Кофе-машина");
         new Main().start();
     }
+
     private void start() {
         // init console input
         scanner = new Scanner(System.in);
@@ -23,8 +24,13 @@ public class Main
         int moneyAmount = scanner.nextInt();
         System.out.println("Загружено " + moneyAmount + "рублей");
 
-        int[] drinkPrices = {150, 80, 20, 50};
-        String[] drinkNames = {"капучино", "эспрессо", "воду", "молоко"};
+        // load bd drinks
+        DrinkList[] drinks = {
+                new DrinkList("капучино", 150),
+                new DrinkList("эспрессо", 80),
+                new DrinkList("воду", 20),
+                new DrinkList("молоко", 50)
+        };
 
         //TODO: реализовать оповещение в случае, если недостаточно средств
         boolean canBuyAnything = false;
