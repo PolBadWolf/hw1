@@ -2,7 +2,11 @@ package ru.yandex.fixcolor.tests.skillbox.hw1;
 
 import com.sun.deploy.util.SyncAccess;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -55,6 +59,14 @@ public class Main
 
         //TODO: get screenshot
         BufferedImage image = null;
+        try {
+            image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            ImageIO.write(image, "png", new File("C:\\\\Users\\Gumerovmn\\Dropbox\\", dateFormat.format(now) + ".png"));
+        } catch (AWTException e) {
+            System.out.println("Ошибка получения скриншота: " + e.getLocalizedMessage());
+        } catch (IOException e) {
+            System.out.println("Ошибка сохранения скриншота: " + e.getLocalizedMessage());
+        }
         System.out.println(image.getWidth() + "x" + image.getHeight());
     }
 }
